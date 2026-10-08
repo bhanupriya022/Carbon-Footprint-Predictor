@@ -8,8 +8,10 @@ import os
 import numpy as np
 import joblib
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
+CORS(app)
 
 # ── Load models ────────────────────────────────────────────────────────────────
 MODELS_DIR = "models"
