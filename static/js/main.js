@@ -2,12 +2,13 @@
 
 const API = "https://carbon-footprint-predictor.onrender.com";
 
-// ── Load vehicle types into <select> ─────────────────────────────────────────
-async function loadVehicleTypes() {
+// ── Load vehicle types into <select> (retries for Render cold start) ─────────
+async function loadVehicleTypes(attempt = 1) {
+  const sel = document.getElementById("vehicle_type");
+  sel.innerHTML = '<option value="" disabled selected>Waking up server…</option>';
   try {
     const res  = await fetch(`${API}/vehicle-types`);
     const data = await res.json();
-    const sel  = document.getElementById("vehicle_type");
     sel.innerHTML = '<option value="" disabled selected>Select…</option>';
     data.vehicle_types.forEach(v => {
       const opt = document.createElement("option");
@@ -16,7 +17,13 @@ async function loadVehicleTypes() {
       sel.appendChild(opt);
     });
   } catch (e) {
-    console.error("Could not load vehicle types", e);
+    if (attempt <= 5) {
+      sel.innerHTML = `<option value="" disabled selected>Connecting… (${attempt}/5)</option>`;
+      setTimeout(() => loadVehicleTypes(attempt + 1), 8000);
+    } else {
+      sel.innerHTML = '<option value="" disabled selected>Failed to load — refresh page</option>';
+      console.error("Could not load vehicle types", e);
+    }
   }
 }
 
