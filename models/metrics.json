@@ -1,0 +1,24 @@
+{
+  "random_forest": {
+    "mae": 15.08,
+    "rmse": 22.56,
+    "r2": 0.9716,
+    "cv_r2": 0.9799
+  },
+  "linear_regression": {
+    "mae": 9.67,
+    "rmse": 10.85,
+    "r2": 0.9934,
+    "cv_r2": 0.99
+  },
+  "vehicle_types": [
+    "Bike",
+    "Bus",
+    "Car",
+    "Electric Bike",
+    "Electric Car",
+    "Metro",
+    "Scooter",
+    "Train"
+  ]
+}

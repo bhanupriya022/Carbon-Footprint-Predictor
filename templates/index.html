@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Footprint Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────────────────── -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a9 9 0 0 1 9 9c0 4.17-2.84 7.67-6.7 8.68L12 22l-2.3-2.32C5.84 18.67 3 15.17 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg>
+        </div>
+        <span>CarbonPredict</span>
+      </div>
+      <nav>
+        <a href="#predictor" class="nav-link">Predict</a>
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#reduce" class="nav-link">Reduce</a>
+      </nav>
+      <a href="#predictor" class="nav-cta">Get Started</a>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-pill">
+        <span class="pill-dot"></span>
+        ML-Powered Prediction
+      </div>
+      <h1>Know Your <span class="hero-highlight">Carbon<br>Footprint</span> Today</h1>
+      <p>Enter your lifestyle details and our Linear Regression model instantly estimates your monthly CO₂ emissions — with personalised tips to reduce them.</p>
+      <div class="hero-actions">
+        <a href="#predictor" class="btn-primary btn-lg">
+          Calculate Now
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#reduce" class="btn-ghost btn-lg">How to Reduce</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Data Points</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num">99%</span>
+          <span class="stat-label">Model Accuracy</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num">9</span>
+          <span class="stat-label">Input Factors</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="vis-card">
+        <div class="vis-ring">
+          <svg viewBox="0 0 120 120" class="ring-svg">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="url(#ringGrad)" stroke-width="8"
+              stroke-dasharray="220 314" stroke-dashoffset="78" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#22c55e"/>
+                <stop offset="100%" stop-color="#16a34a"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="ring-inner">
+            <span class="ring-val">152</span>
+            <span class="ring-unit">kg CO₂</span>
+          </div>
+        </div>
+        <div class="vis-label">Dataset Average / month</div>
+        <div class="vis-bars">
+          <div class="vis-bar-row"><span>Transport</span><div class="vis-bar-track"><div class="vis-bar-fill" style="width:72%;background:#22c55e"></div></div></div>
+          <div class="vis-bar-row"><span>Energy</span><div class="vis-bar-track"><div class="vis-bar-fill" style="width:48%;background:#3b82f6"></div></div></div>
+          <div class="vis-bar-row"><span>Diet</span><div class="vis-bar-track"><div class="vis-bar-fill" style="width:35%;background:#f59e0b"></div></div></div>
+          <div class="vis-bar-row"><span>Waste</span><div class="vis-bar-track"><div class="vis-bar-fill" style="width:20%;background:#ef4444"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PREDICTOR FORM ─────────────────────────────────────────────────────── -->
+  <section id="predictor" class="section section-form">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">Step 1</div>
+        <h2 class="section-title">Enter Your Details</h2>
+        <p class="section-sub">Fill in your monthly habits across 9 factors to get your personalised estimate.</p>
+      </div>
+
+      <div class="form-card">
+        <form id="predictForm" novalidate>
+
+          <!-- Vehicle -->
+          <div class="form-section-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Transport
+          </div>
+          <div class="form-grid">
+            <div class="form-group span-2">
+              <label for="vehicle_type">Primary Vehicle Type</label>
+              <div class="select-wrap">
+                <select id="vehicle_type" name="vehicle_type" required>
+                  <option value="" disabled selected>Loading…</option>
+                </select>
+                <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="distance_km">Distance Driven <span class="label-unit">km / month</span></label>
+              <input type="number" id="distance_km" name="distance_km" min="0" placeholder="e.g. 600" required />
+            </div>
+            <div class="form-group">
+              <label for="fuel_consumption_l">Fuel Consumption <span class="label-unit">L / month</span></label>
+              <input type="number" id="fuel_consumption_l" name="fuel_consumption_l" min="0" placeholder="0 for electric" required />
+            </div>
+            <div class="form-group">
+              <label for="public_transport_km">Public Transport <span class="label-unit">km / month</span></label>
+              <input type="number" id="public_transport_km" name="public_transport_km" min="0" placeholder="e.g. 80" required />
+            </div>
+            <div class="form-group">
+              <label for="flights_per_year">Flights <span class="label-unit">per year</span></label>
+              <input type="number" id="flights_per_year" name="flights_per_year" min="0" placeholder="e.g. 2" required />
+            </div>
+          </div>
+
+          <!-- Home -->
+          <div class="form-section-label" style="margin-top:1.8rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home &amp; Lifestyle
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="monthly_electricity_kwh">Electricity Usage <span class="label-unit">kWh / month</span></label>
+              <input type="number" id="monthly_electricity_kwh" name="monthly_electricity_kwh" min="0" placeholder="e.g. 200" required />
+            </div>
+            <div class="form-group">
+              <label for="waste_kg_month">Waste Generated <span class="label-unit">kg / month</span></label>
+              <input type="number" id="waste_kg_month" name="waste_kg_month" min="0" placeholder="e.g. 15" required />
+            </div>
+            <div class="form-group">
+              <label for="meat_meals_per_week">Meat Meals <span class="label-unit">per week</span></label>
+              <input type="number" id="meat_meals_per_week" name="meat_meals_per_week" min="0" placeholder="e.g. 4" required />
+            </div>
+            <div class="form-group">
+              <label for="household_size">Household Size <span class="label-unit">people</span></label>
+              <input type="number" id="household_size" name="household_size" min="1" placeholder="e.g. 3" required />
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn-primary btn-lg" id="submitBtn">
+              <span id="btnText">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Predict My Footprint
+              </span>
+              <span id="btnSpinner" class="spinner hidden"></span>
+            </button>
+            <button type="button" class="btn-outline" id="resetBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Reset
+            </button>
+          </div>
+
+          <p id="formError" class="form-error hidden"></p>
+        </form>
+      </div>
+
+      <!-- ── RESULT CARD ──────────────────────────────────────────────────── -->
+      <div id="resultCard" class="result-card hidden">
+        <div class="result-glow" id="resultGlow"></div>
+        <div class="result-top">
+          <div class="result-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 1 9 9c0 4.17-2.84 7.67-6.7 8.68L12 22l-2.3-2.32C5.84 18.67 3 15.17 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg>
+          </div>
+          <div>
+            <div class="result-eyebrow">Your Carbon Footprint Estimate</div>
+            <div class="result-main-row">
+              <span class="result-big" id="lrValue">—</span>
+              <span class="result-big-unit">kg CO₂<br><small>per month</small></span>
+              <span id="resultCategory" class="result-badge"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gauge-wrap">
+          <div class="gauge-seg-labels">
+            <span style="color:#22c55e">Low</span>
+            <span style="color:#f59e0b">Moderate</span>
+            <span style="color:#ef4444">High</span>
+          </div>
+          <div class="gauge-track">
+            <div class="gauge-zone" style="width:16%;background:rgba(34,197,94,.18)"></div>
+            <div class="gauge-zone" style="width:20%;background:rgba(245,158,11,.18)"></div>
+            <div class="gauge-zone" style="width:64%;background:rgba(239,68,68,.12)"></div>
+            <div class="gauge-fill" id="gaugeFill"></div>
+          </div>
+          <div class="gauge-labels">
+            <span>0</span><span>80</span><span>180</span><span>500+ kg</span>
+          </div>
+        </div>
+
+        <div class="result-tip-box" id="resultTip"></div>
+
+        <a href="#dashboard" class="result-dash-link">
+          View Full Dashboard
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── RESULT DASHBOARD ───────────────────────────────────────────────────── -->
+  <section id="dashboard" class="section section-dark">
+    <div class="container">
+      <div class="section-head light">
+        <div class="section-tag tag-light">Dashboard</div>
+        <h2 class="section-title">Result Dashboard</h2>
+        <p class="section-sub">Your prediction broken down into meaningful insights.</p>
+      </div>
+
+      <div id="dashboardEmpty" class="dashboard-empty">
+        <div class="empty-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a9 9 0 0 1 9 9c0 4.17-2.84 7.67-6.7 8.68L12 22l-2.3-2.32C5.84 18.67 3 15.17 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg>
+        </div>
+        <p>No prediction yet.<br>Fill in the form above and click <strong>Predict My Footprint</strong>.</p>
+        <a href="#predictor" class="btn-primary">Go to Form →</a>
+      </div>
+
+      <div id="dashboardContent" class="hidden">
+        <div class="dash-grid">
+          <div class="dash-card dash-main">
+            <div class="dash-card-icon" style="background:rgba(34,197,94,.15);color:#22c55e">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 1 9 9c0 4.17-2.84 7.67-6.7 8.68L12 22l-2.3-2.32C5.84 18.67 3 15.17 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg>
+            </div>
+            <div class="dash-label">Monthly Footprint</div>
+            <div class="dash-value" id="dashValue">—</div>
+            <div class="dash-unit">kg CO₂ / month</div>
+            <span class="result-badge" id="dashBadge" style="margin-top:.9rem;display:inline-block"></span>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-icon" style="background:rgba(59,130,246,.15);color:#3b82f6">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+            <div class="dash-label">Annual Estimate</div>
+            <div class="dash-value" id="dashAnnual">—</div>
+            <div class="dash-unit">kg CO₂ / year</div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-icon" style="background:rgba(34,197,94,.15);color:#22c55e">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8C8 10 5.9 16.17 3.82 19.5c-.41.67.09 1.5.87 1.5H6.5c.55 0 1-.45 1-1V17c0-.55.45-1 1-1h2c.55 0 1 .45 1 1v3c0 .55.45 1 1 1h3.5c1.1 0 1.71-1.25 1.07-2.14C14.6 16.12 14 12.5 17 8z"/></svg>
+            </div>
+            <div class="dash-label">Trees to Offset</div>
+            <div class="dash-value" id="dashTrees">—</div>
+            <div class="dash-unit">trees / year</div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-icon" style="background:rgba(245,158,11,.15);color:#f59e0b">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div class="dash-label">vs. Avg (152 kg)</div>
+            <div class="dash-value" id="dashVsAvg">—</div>
+            <div class="dash-unit" id="dashVsAvgLabel">vs. dataset average</div>
+          </div>
+        </div>
+
+        <div class="dash-gauge-wrap">
+          <div class="dash-gauge-label">Emission Level</div>
+          <div class="gauge-track" style="height:14px">
+            <div class="gauge-zone" style="width:16%;background:rgba(34,197,94,.2)"></div>
+            <div class="gauge-zone" style="width:20%;background:rgba(245,158,11,.2)"></div>
+            <div class="gauge-zone" style="width:64%;background:rgba(239,68,68,.15)"></div>
+            <div class="gauge-fill" id="dashGaugeFill"></div>
+          </div>
+          <div class="gauge-labels" style="color:rgba(255,255,255,.5)">
+            <span>0</span><span>80 — Low</span><span>180 — Moderate</span><span>500+ kg — High</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WAYS TO REDUCE ─────────────────────────────────────────────────────── -->
+  <section id="reduce" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">Action Plan</div>
+        <h2 class="section-title">Ways to Reduce Your Carbon Footprint</h2>
+        <p class="section-sub">Six practical changes you can make today to lower your monthly CO₂ emissions.</p>
+      </div>
+
+      <div class="reduce-grid">
+        <div class="reduce-card">
+          <div class="reduce-icon" style="--ic-bg:#dcfce7;--ic-fg:#16a34a">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h4>Switch to Public Transport or Cycling</h4>
+          <p>Replacing a weekly car commute with a bus or bike can cut transport emissions by up to 70%. Even one car-free day per week makes a measurable difference.</p>
+          <div class="reduce-saving">Up to 70% transport saving</div>
+        </div>
+        <div class="reduce-card">
+          <div class="reduce-icon" style="--ic-bg:#dbeafe;--ic-fg:#1d4ed8">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <h4>Use Renewable Energy at Home</h4>
+          <p>Switching to a green electricity tariff or installing solar panels can dramatically reduce your monthly electricity carbon impact without changing your lifestyle.</p>
+          <div class="reduce-saving">100% clean energy possible</div>
+        </div>
+        <div class="reduce-card">
+          <div class="reduce-icon" style="--ic-bg:#fef9c3;--ic-fg:#a16207">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <h4>Reduce Meat Consumption</h4>
+          <p>Meat production — especially beef — is one of the highest-emission food categories. Cutting even 2 meat meals per week can save 50–100 kg CO₂ per year.</p>
+          <div class="reduce-saving">50–100 kg CO₂ saved / year</div>
+        </div>
+        <div class="reduce-card">
+          <div class="reduce-icon" style="--ic-bg:#fce7f3;--ic-fg:#9d174d">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L8.09 11a16 16 0 006.91 6.91l1.27-1.27a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 19v-.08z"/></svg>
+          </div>
+          <h4>Fly Less, Choose Direct Flights</h4>
+          <p>Aviation is one of the fastest ways to increase your footprint. Replacing one long-haul flight with a train journey or video call can save 500–2000 kg CO₂.</p>
+          <div class="reduce-saving">500–2000 kg CO₂ per flight</div>
+        </div>
+        <div class="reduce-card">
+          <div class="reduce-icon" style="--ic-bg:#ede9fe;--ic-fg:#6d28d9">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+          </div>
+          <h4>Reduce, Reuse &amp; Recycle Waste</h4>
+          <p>Landfill waste generates methane — a potent greenhouse gas. Composting food scraps, recycling packaging, and buying less disposable plastic all reduce your waste footprint.</p>
+          <div class="reduce-saving">Cuts methane emissions</div>
+        </div>
+        <div class="reduce-card">
+          <div class="reduce-icon" style="--ic-bg:#d1fae5;--ic-fg:#065f46">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Make Your Home More Energy Efficient</h4>
+          <p>Improving insulation, switching to LED lighting, and upgrading to energy-efficient appliances can reduce home energy use by 20–40% with no lifestyle sacrifice.</p>
+          <div class="reduce-saving">20–40% energy reduction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
