@@ -1,6 +1,6 @@
 /* ── Carbon Footprint Predictor — main.js ─────────────────────────────────── */
 
-const API = "";            // same origin; Flask serves everything
+const API = "https://carbon-footprint-predictor.onrender.com";
 
 // ── Load vehicle types into <select> ─────────────────────────────────────────
 async function loadVehicleTypes() {
